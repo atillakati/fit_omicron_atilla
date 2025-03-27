@@ -41,35 +41,45 @@ namespace StudentManagementApp_V1
             Console.Write("\tYour full name:             ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             fullName = Console.ReadLine();
-            Console.ResetColor();
 
-            Console.Write("\tYour birthday (dd.mm.yyyy): ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            userInput = Console.ReadLine();
+            do
+            {
+                Console.ResetColor();
+                Console.Write("\tYour birthday (dd.mm.yyyy): ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                userInput = Console.ReadLine();
 
-            try
+                try
+                {
+                    birthday = DateTime.Parse(userInput);
+                    userInputIsInvalid = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    userInputIsInvalid = true;
+                } 
+            } 
+            while (userInputIsInvalid);
+
+            do
             {
-                birthday = DateTime.Parse(userInput);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR: " + ex.Message);
-                userInputIsInvalid = true;
-            }
-            
-            Console.ResetColor();
-            Console.Write("\tPostal code:                ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            userInput = Console.ReadLine();
-            try
-            {
-                postalCode = int.Parse(userInput);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR: " + ex.Message);
-                userInputIsInvalid = true;
-            }
+                Console.ResetColor();
+                Console.Write("\tPostal code:                ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                userInput = Console.ReadLine();
+                try
+                {
+                    postalCode = int.Parse(userInput);
+                    userInputIsInvalid = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    userInputIsInvalid = true;
+                } 
+            } 
+            while (userInputIsInvalid);
 
             Console.ResetColor();
             Console.Write("\tCity:                       ");
