@@ -33,22 +33,22 @@ namespace StudentManagementApp_V1
             int postalCode = 0;
             string city = string.Empty;
 
+            //student data input
             Console.WriteLine("Please enter following information:");
             Console.WriteLine();
-            Console.Write("\tyour full name:             ");
+            Console.Write("\tYour full name:             ");
             fullName = Console.ReadLine();
 
-            Console.Write("\tyour birthday (dd.mm.yyyy): ");
+            Console.Write("\tYour birthday (dd.mm.yyyy): ");
             userInput = Console.ReadLine();
             birthday = DateTime.Parse(userInput);
 
-            Console.Write("\tpostal code:                ");
+            Console.Write("\tPostal code:                ");
             userInput = Console.ReadLine();
             postalCode = int.Parse(userInput);
 
             Console.Write("\tCity:                       ");
             city = Console.ReadLine();
-
 
             //output student data
             Console.WriteLine("\n\n");
