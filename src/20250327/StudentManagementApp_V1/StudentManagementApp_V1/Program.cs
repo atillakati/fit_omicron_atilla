@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace StudentManagementApp_V1
 {
@@ -35,7 +32,7 @@ namespace StudentManagementApp_V1
             DateTime[] studenBirthdays;
             int[] studenPostalCodes;
             string[] studenCities;
-            
+
 
             //retrieve count of students
             do
@@ -67,7 +64,7 @@ namespace StudentManagementApp_V1
             {
                 //student data input
                 Console.ResetColor();
-                Console.WriteLine("Please enter following information for student #{0}:", i+1);
+                Console.WriteLine("Please enter following information for student #{0}:", i + 1);
                 Console.WriteLine();
 
                 //get student name
@@ -120,22 +117,20 @@ namespace StudentManagementApp_V1
                 Console.ResetColor();
                 Console.Write("\tCity:                       ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                studenCities[i] = Console.ReadLine();                
+                studenCities[i] = Console.ReadLine();
             }
 
             Console.ResetColor();
 
             //output student data
-            if (!userInputIsInvalid)
+            for (int i = 0; i < studenCount; i++)
             {
-                for (int i = 0; i < studenCount; i++)
-                {
-                    Console.WriteLine("\nStudent #{0}:", i+1);
-                    Console.WriteLine("Name: " + studenFullNames[i]);
-                    Console.WriteLine(studenPostalCodes[i].ToString() + " " + studenCities[i]);
-                    Console.WriteLine("Day of birth: " + studenBirthdays[i].ToShortDateString());
-                }
+                Console.WriteLine("\nStudent #{0}:", i + 1);
+                Console.WriteLine("Name: " + studenFullNames[i]);
+                Console.WriteLine(studenPostalCodes[i].ToString() + " " + studenCities[i]);
+                Console.WriteLine("Day of birth: " + studenBirthdays[i].ToShortDateString());
             }
+
         }
     }
 }
