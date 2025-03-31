@@ -1,8 +1,11 @@
 ﻿using System;
 
 
-namespace StudentManagementApp_V1
+namespace StudentManagementApp_v2
 {
+
+
+
     class Program
     {
         /*         
@@ -28,12 +31,9 @@ namespace StudentManagementApp_V1
             string userInput = string.Empty;
             int studentCount = 0;
 
-            string[] fullNameList;
-            DateTime[] birthdayList;
-            int[] postalCodeList;
-            string[] cityList;
+            Student[] studentList;
 
-
+            
             do
             {
                 Console.ResetColor();
@@ -56,11 +56,7 @@ namespace StudentManagementApp_V1
             Console.ResetColor();
 
             //dimension the arrays
-            fullNameList = new string[studentCount];
-            postalCodeList = new int[studentCount];
-            birthdayList = new DateTime[studentCount];
-            cityList = new string[studentCount];
-
+            studentList = new Student[studentCount];            
 
             for (int i = 0; i < studentCount; i++)
             {
@@ -71,7 +67,7 @@ namespace StudentManagementApp_V1
                 Console.WriteLine();
                 Console.Write("\tYour full name:             ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                fullNameList[i] = Console.ReadLine();
+                studentList[i].Name = Console.ReadLine();
 
                 do
                 {
@@ -82,7 +78,7 @@ namespace StudentManagementApp_V1
 
                     try
                     {
-                        birthdayList[i] = DateTime.Parse(userInput);
+                        studentList[i].Birthday = DateTime.Parse(userInput);
                         userInputIsInvalid = false;
                     }
                     catch (Exception ex)
@@ -101,7 +97,7 @@ namespace StudentManagementApp_V1
                     userInput = Console.ReadLine();
                     try
                     {
-                        postalCodeList[i] = int.Parse(userInput);
+                        studentList[i].PostalCode = int.Parse(userInput);
                         userInputIsInvalid = false;
                     }
                     catch (Exception ex)
@@ -115,7 +111,7 @@ namespace StudentManagementApp_V1
                 Console.ResetColor();
                 Console.Write("\tCity:                       ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                cityList[i] = Console.ReadLine();
+                studentList[i].City = Console.ReadLine();
             }
             Console.ResetColor();
 
@@ -123,9 +119,9 @@ namespace StudentManagementApp_V1
             for (int i = 0; i < studentCount; i++)
             {
                 Console.WriteLine("\nStudent #" + (i + 1) + ":\n");
-                Console.WriteLine("Name: " + fullNameList[i]);
-                Console.WriteLine(postalCodeList[i].ToString() + " " + cityList[i]);
-                Console.WriteLine("Day of birth: " + birthdayList[i].ToShortDateString());
+                Console.WriteLine("Name: " + studentList[i].Name);
+                Console.WriteLine(studentList[i].PostalCode.ToString() + " " + studentList[i].City);
+                Console.WriteLine("Day of birth: " + studentList[i].Birthday.ToShortDateString());
             }
         }
     }
