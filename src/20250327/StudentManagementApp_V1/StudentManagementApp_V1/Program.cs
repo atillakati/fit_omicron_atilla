@@ -24,50 +24,25 @@ namespace StudentManagementApp_V1
 
         static void Main(string[] args)
         {
-            string userInput = string.Empty;
-            string fullName = string.Empty;
-            DateTime birthday = DateTime.MinValue;
-            int postalCode = 0;
-            string city = string.Empty;
             bool userInputIsInvalid = false;
+            string userInput = string.Empty;
+            int studentCount = 0;
 
+            string[] fullNameList;
+            DateTime[] birthdayList;
+            int[] postalCodeList;
+            string[] cityList;
 
-            //student data input
-            Console.WriteLine("Please enter following information:");
-            Console.WriteLine();
-            Console.Write("\tYour full name:             ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            fullName = Console.ReadLine();
 
             do
             {
                 Console.ResetColor();
-                Console.Write("\tYour birthday (dd.mm.yyyy): ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                userInput = Console.ReadLine();
-
-                try
-                {
-                    birthday = DateTime.Parse(userInput);
-                    userInputIsInvalid = false;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("ERROR: " + ex.Message);
-                    userInputIsInvalid = true;
-                }
-            }
-            while (userInputIsInvalid);
-
-            do
-            {
-                Console.ResetColor();
-                Console.Write("\tPostal code:                ");
+                Console.Write("\tPlease enter the count of students: ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 userInput = Console.ReadLine();
                 try
                 {
-                    postalCode = int.Parse(userInput);
+                    studentCount = int.Parse(userInput);
                     userInputIsInvalid = false;
                 }
                 catch (Exception ex)
@@ -79,19 +54,78 @@ namespace StudentManagementApp_V1
             while (userInputIsInvalid);
 
             Console.ResetColor();
-            Console.Write("\tCity:                       ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            city = Console.ReadLine();
 
+            //dimension the arrays
+            fullNameList = new string[studentCount];
+            postalCodeList = new int[studentCount];
+            birthdayList = new DateTime[studentCount];
+            cityList = new string[studentCount];
+
+
+            for (int i = 0; i < studentCount; i++)
+            {
+                Console.ResetColor();
+
+                //student data input
+                Console.WriteLine("Please enter following information for student #" + (i + 1) + ":");
+                Console.WriteLine();
+                Console.Write("\tYour full name:             ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                fullNameList[i] = Console.ReadLine();
+
+                do
+                {
+                    Console.ResetColor();
+                    Console.Write("\tYour birthday (dd.mm.yyyy): ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    userInput = Console.ReadLine();
+
+                    try
+                    {
+                        birthdayList[i] = DateTime.Parse(userInput);
+                        userInputIsInvalid = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("ERROR: " + ex.Message);
+                        userInputIsInvalid = true;
+                    }
+                }
+                while (userInputIsInvalid);
+
+                do
+                {
+                    Console.ResetColor();
+                    Console.Write("\tPostal code:                ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    userInput = Console.ReadLine();
+                    try
+                    {
+                        postalCodeList[i] = int.Parse(userInput);
+                        userInputIsInvalid = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("ERROR: " + ex.Message);
+                        userInputIsInvalid = true;
+                    }
+                }
+                while (userInputIsInvalid);
+
+                Console.ResetColor();
+                Console.Write("\tCity:                       ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                cityList[i] = Console.ReadLine();
+            }
             Console.ResetColor();
 
-            //output student data
-            if (!userInputIsInvalid)
+            //output student data            
+            for (int i = 0; i < studentCount; i++)
             {
-                Console.WriteLine("\n\n");
-                Console.WriteLine("Name: " + fullName);
-                Console.WriteLine(postalCode.ToString() + " " + city);
-                Console.WriteLine("Day of birth: " + birthday.ToShortDateString());
+                Console.WriteLine("\nStudent #" + (i + 1) + ":\n");
+                Console.WriteLine("Name: " + fullNameList[i]);
+                Console.WriteLine(postalCodeList[i].ToString() + " " + cityList[i]);
+                Console.WriteLine("Day of birth: " + birthdayList[i].ToShortDateString());
             }
         }
     }
