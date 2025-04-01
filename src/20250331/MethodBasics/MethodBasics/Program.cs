@@ -27,12 +27,26 @@ namespace MethodBasics
             PrintMessage("This is a test.");
 
             PrintColoredMessage("Hello world!", ConsoleColor.Yellow);
+
+            int sum = 0;
+
+            sum = Addition(15, 5);
+            Console.WriteLine("Result: " + sum);
+        }
+
+        static int Addition(int number1, int number2)
+        {
+            int result = 0;
+
+            result = number1 + number2;
+
+            return result;
         }
 
         static void PrintColoredMessage(string message, ConsoleColor messageColor)
         {
             ConsoleColor oldColor = Console.ForegroundColor;
-            Console.ForegroundColor = messageColor;
+            Console.ForegroundColor = messageColor;            
 
             Console.WriteLine(message);
             Console.ForegroundColor = oldColor;
@@ -47,7 +61,6 @@ namespace MethodBasics
         // return type - name ( parameter list )
         static void PrintHelloWorld()
         {
-
             Console.WriteLine("Hello world!");
         }
     }
