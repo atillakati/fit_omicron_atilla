@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Wifi.Toolbox.Tools;
 
 namespace Wifi.Toolbox.Testapplication
@@ -13,8 +8,9 @@ namespace Wifi.Toolbox.Testapplication
         static void Main(string[] args)
         {
             int age = ConsoleTools.GetInt("Please enter your age: ");
+            double weight = ConsoleTools.GetDouble("Please enter your weight: ");
 
-            Console.WriteLine($"You are {age} years old.");
+            Console.WriteLine($"\nYou are {age} years old and your weight is {weight:f2} kg.");
         }
     }
 }

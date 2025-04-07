@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wifi.Toolbox.Tools
 {
@@ -38,5 +34,81 @@ namespace Wifi.Toolbox.Tools
 
             return intValue;
         }
+
+        public static double GetDouble(string inputPrompt)
+        {
+            string userInput = string.Empty;
+            double doubleValue = 0.0;
+            bool userInputIsInvalid = false;
+
+            do
+            {
+                Console.ResetColor();
+                Console.Write(inputPrompt);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                userInput = Console.ReadLine();
+
+                try
+                {
+                    doubleValue = double.Parse(userInput);
+                    userInputIsInvalid = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    userInputIsInvalid = true;
+                }
+            }
+            while (userInputIsInvalid);
+
+            Console.ResetColor();
+
+            return doubleValue;
+        }
+
+        public static string GetString(string inputPrompt)
+        {
+            string userInput = string.Empty;
+
+            Console.Write(inputPrompt);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            userInput = Console.ReadLine();
+            Console.ResetColor();
+
+            return userInput;
+        }
+
+        public static DateTime GetDateTime(string inputPrompt)
+        {
+            string userInput = string.Empty;
+            DateTime dateTimeValue = DateTime.MinValue;
+            bool userInputIsInvalid = false;
+
+            do
+            {
+                Console.ResetColor();
+                Console.Write(inputPrompt);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                userInput = Console.ReadLine();
+
+                try
+                {
+                    dateTimeValue = DateTime.Parse(userInput);
+                    userInputIsInvalid = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    userInputIsInvalid = true;
+                }
+            }
+            while (userInputIsInvalid);
+
+            Console.ResetColor();
+
+            return dateTimeValue;
+        }
+
     }
 }
