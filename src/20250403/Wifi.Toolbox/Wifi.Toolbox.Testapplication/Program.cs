@@ -7,6 +7,10 @@ namespace Wifi.Toolbox.Testapplication
     {
         static void Main(string[] args)
         {
+            ConsoleTools.CreateHeader("Test App");
+
+            ConsoleTools.CreateHeader("Test App", 'O');
+
             int age = ConsoleTools.GetInt("Please enter your age: ");
             double weight = ConsoleTools.GetDouble("Please enter your weight: ");
 

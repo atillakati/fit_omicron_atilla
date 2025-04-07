@@ -1,9 +1,32 @@
 ﻿using System;
 
+using TextToAsciiArt;
+
 namespace Wifi.Toolbox.Tools
 {
     public abstract class ConsoleTools
     {
+        public static void CreateHeader(string headerText, char textFillChar)
+        {
+            IArtWriter writer = new ArtWriter();
+
+            var settings = new ArtSetting
+            {
+                ConsoleSpeed = 50,
+                IsBreakSpace = false,
+                Text = textFillChar.ToString(),
+                BgText = " "
+            };
+
+            writer.WriteConsole(headerText, settings);
+        }
+
+        public static void CreateHeader(string headerText)
+        {
+            CreateHeader(headerText, '*');
+        }
+
+
         public static int GetInt(string inputPrompt)
         {
             string userInput = string.Empty;
