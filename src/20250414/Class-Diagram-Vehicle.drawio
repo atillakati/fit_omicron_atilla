@@ -78,7 +78,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="GKZ5iAnQWiYx_rMvBZwW" name="Page-3">
-    <mxGraphModel dx="889" dy="492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="261" dy="303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -106,8 +106,20 @@
         <mxCell id="VUnPOwOzNuuoypDUQZII-9" value="SpeedUp(int delta) : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="VUnPOwOzNuuoypDUQZII-1">
           <mxGeometry y="164" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="VUnPOwOzNuuoypDUQZII-4" value="GetInfoString()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="VUnPOwOzNuuoypDUQZII-1">
+        <mxCell id="VUnPOwOzNuuoypDUQZII-4" value="GetInfoString() : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="VUnPOwOzNuuoypDUQZII-1">
           <mxGeometry y="190" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="VUnPOwOzNuuoypDUQZII-10" value="Presentation Layer (UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="640" y="330" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="VUnPOwOzNuuoypDUQZII-13" value="Business Layer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="330" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="VUnPOwOzNuuoypDUQZII-14" value="Data Layer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="362" width="140" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="VUnPOwOzNuuoypDUQZII-15" value="Presentation Layer (UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="470" y="298" width="140" height="32" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
