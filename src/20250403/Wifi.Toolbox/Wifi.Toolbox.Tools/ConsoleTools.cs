@@ -27,6 +27,52 @@ namespace Wifi.Toolbox.Tools
         }
 
 
+        public static T GetInputValue<T>(string inputPrompt) where T: struct
+        {
+            string userInput = string.Empty;
+            T userValue = default(T);
+            bool userInputIsInvalid = false;
+
+            Type inputType = typeof(T);            
+
+            do
+            {
+                Console.ResetColor();
+                Console.Write(inputPrompt);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                userInput = Console.ReadLine();
+
+                try
+                {
+                    var parseMethodInfo = inputType.GetMethod("Parse", new Type[] { typeof(string) });
+                    if(parseMethodInfo == null)
+                    {
+                        throw new NotImplementedException($"Type '{inputType.Name}' doesn't support Parse().");
+                    }
+
+                    userValue = (T)parseMethodInfo.Invoke(null, new object[] { userInput });
+
+                    //userValue = int.Parse(userInput);
+                    userInputIsInvalid = false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: " + ex.Message);
+                    if (ex.InnerException != null)
+                    {
+                        Console.WriteLine("\tERROR: " + ex.InnerException.Message);
+                    }
+                    
+                    userInputIsInvalid = true;
+                }
+            }
+            while (userInputIsInvalid);
+
+            Console.ResetColor();
+
+            return userValue;
+        }
+
         public static int GetInt(string inputPrompt)
         {
             string userInput = string.Empty;
