@@ -1,6 +1,2 @@
 
-How can I write a CRUD class for a MongoDB connection in C#? The class should be generic so that any payloads can be managed with it. Add a null check to all methods with parameters in the class.
-Also define a suitable payload class with a unique ID in C#. Use person data as an example.
-
-
-What does a typical connection string in C# for MongoDB connection look like?
+Provide a CRUD class for a MongoDB database in C#. The class should be generic so that any payloads can be managed with it. Add a null check to all methods with parameters in the class. Also define a suitable payload class with a unique ID in C#. Use person data as an example. Also provide what does a typical connection string in C# for MongoDB connection look like.
