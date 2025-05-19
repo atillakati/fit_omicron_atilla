@@ -12,17 +12,22 @@ namespace Wifi.PlaylistEditor.Core
 		private string _name;
 		private string _author;
 		private DateTime _createdAt;
-        private List<IPlaylistItem> _itemList;		
+        private List<IPlaylistItem> _itemList;
 
-        public Playlist(string name, string author)
-        {
+        public Playlist(string name, string author, DateTime createAt)
+		{
             _name = name;
             _author = author;
-			_createdAt = DateTime.Now;
+            _createdAt = createAt;
 
-			_itemList = new List<IPlaylistItem>();
+            _itemList = new List<IPlaylistItem>();								
         }
 
+		public Playlist(string name, string author)
+			: this(name, author, DateTime.Now) 
+		{
+			//do other things...
+		}
 
 		public TimeSpan Duration
 		{
@@ -56,6 +61,11 @@ namespace Wifi.PlaylistEditor.Core
 
 		public void Add(IPlaylistItem newItem)
 		{
+			if(newItem == null)
+			{
+				return;
+			}
+
 			_itemList.Add(newItem);
 		}
 
