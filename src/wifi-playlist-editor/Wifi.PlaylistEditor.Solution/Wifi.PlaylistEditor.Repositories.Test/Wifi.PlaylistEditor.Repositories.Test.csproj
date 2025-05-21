@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MongoRepositoryTests.cs" />
+    <Compile Include="Database\MongoRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,10 +53,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Wifi.PlaylistEditor.Core\Wifi.PlaylistEditor.Core.csproj">
+      <Project>{10e5370f-d18a-407c-b0a7-4dd3834ca9b1}</Project>
+      <Name>Wifi.PlaylistEditor.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wifi.PlaylistEditor.Repositories\Wifi.PlaylistEditor.Repositories.csproj">
       <Project>{b06afa09-9041-4c4b-a19a-6729d7cf1a9d}</Project>
       <Name>Wifi.PlaylistEditor.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

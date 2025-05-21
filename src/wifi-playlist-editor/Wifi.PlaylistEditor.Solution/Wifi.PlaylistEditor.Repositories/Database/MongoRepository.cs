@@ -1,21 +1,23 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MongoDB.Driver;
+using Wifi.PlaylistEditor.Core;
 
 namespace Wifi.PlaylistEditor.Repositories.Database
 {
-    public class MongoRepository<T> where T : class
+    public class MongoRepository<T> : IDataBaseRepository<T> where T : class
     {
         private readonly IMongoCollection<T> _collection;
 
         public MongoRepository(string connectionString, string databaseName, string collectionName)
         {
-            if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentNullException(nameof(connectionString));
-            if (string.IsNullOrWhiteSpace(databaseName)) throw new ArgumentNullException(nameof(databaseName));
-            if (string.IsNullOrWhiteSpace(collectionName)) throw new ArgumentNullException(nameof(collectionName));
+            if (string.IsNullOrWhiteSpace(connectionString) ||
+                string.IsNullOrWhiteSpace(databaseName) ||
+                string.IsNullOrWhiteSpace(collectionName))
+            {
+                throw new ArgumentNullException(nameof(collectionName));
+            }
 
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(databaseName);

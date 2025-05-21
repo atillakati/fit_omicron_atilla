@@ -24,6 +24,53 @@ namespace Wifi.PlaylistEditor.Core.Test
             _mockedItem2 = new Mock<IPlaylistItem>();
         }
 
+
+        [Test]
+        public void Clear()
+        {
+            //arrange
+            _fixture.Add(_mockedItem1.Object);
+            _fixture.Add(_mockedItem2.Object);
+            var oldCount = _fixture.ItemList.Count();
+
+            //act
+            _fixture.Clear();
+
+            //assert
+            Assert.That(oldCount, Is.EqualTo(2));
+            Assert.That(_fixture.ItemList.Count(), Is.EqualTo(0));
+        }
+
+
+        [Test]
+        public void Remove()
+        {
+            //arrange
+            _fixture.Add(_mockedItem1.Object);
+            var oldCount = _fixture.ItemList.Count();
+
+            //act
+            _fixture.Remove(_mockedItem1.Object);
+
+            //assert
+            Assert.That(_fixture.ItemList.Count(), Is.EqualTo(oldCount - 1));
+        }
+
+        [Test]
+        public void Remove_ItemIsNull()
+        {
+            //arrange
+            _fixture.Add(_mockedItem1.Object);
+            var oldCount = _fixture.ItemList.Count();
+
+            //act
+            _fixture.Remove(null);
+
+            //assert
+            Assert.That(_fixture.ItemList.Count(), Is.EqualTo(oldCount));
+        }
+
+
         [Test]
         public void Add()
         {
@@ -37,6 +84,7 @@ namespace Wifi.PlaylistEditor.Core.Test
             Assert.That(_fixture.ItemList.Count(), Is.EqualTo(oldCount + 1));
         }
 
+
         [Test]
         public void Add_ItemIsNull()
         {
@@ -48,6 +96,21 @@ namespace Wifi.PlaylistEditor.Core.Test
 
             //assert
             Assert.That(_fixture.ItemList.Count(), Is.EqualTo(oldCount));
+        }
+
+
+        [Test]
+        public void ItemList_get()
+        {
+            //arrange            
+            _fixture.Add(_mockedItem1.Object);
+            _fixture.Add(_mockedItem2.Object);
+
+            //act
+            var result = _fixture.ItemList;
+
+            //assert
+            Assert.That(result.Count(), Is.EqualTo(2));
         }
 
 
