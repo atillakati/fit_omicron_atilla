@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseRepository.cs" />
+    <Compile Include="Database\Extensions.cs" />
     <Compile Include="Database\MongoDbDriver.cs" />
     <Compile Include="Database\Person.cs" />
+    <Compile Include="Database\PlaylistEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
