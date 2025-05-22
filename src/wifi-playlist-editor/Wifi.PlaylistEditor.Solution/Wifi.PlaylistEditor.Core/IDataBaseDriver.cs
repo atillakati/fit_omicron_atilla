@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Wifi.PlaylistEditor.Core
 {
-    public interface IDataBaseRepository<T> where T : class
+    public interface IDataBaseDriver<T> where T : class
     {
         Task CreateAsync(T item);
         Task<IEnumerable<T>> GetAllAsync();

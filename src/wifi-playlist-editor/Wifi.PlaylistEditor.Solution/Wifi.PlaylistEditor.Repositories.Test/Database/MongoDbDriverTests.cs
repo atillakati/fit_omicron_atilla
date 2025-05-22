@@ -8,16 +8,16 @@ using Wifi.PlaylistEditor.Repositories.Database;
 namespace Wifi.PlaylistEditor.Repositories.Test.Database
 {
     [TestFixture]
-    public class MongoRepositoryTests
+    public class MongoDbDriverTests
     {
-        private IDataBaseRepository<Person> _fixture;
+        private IDataBaseDriver<Person> _fixture;
 
 
         [OneTimeSetUp]
         public async Task CreateData()
         {
             var connection = "mongodb://admin:password@localhost:27017";
-            _fixture = new MongoRepository<Person>(connection, "person-db", "person-collection");
+            _fixture = new MongoDbDriver<Person>(connection, "person-db", "person-collection");
 
             var person = CreateDummyPerson("Max");
             var person1 = CreateDummyPerson("Gandalf");

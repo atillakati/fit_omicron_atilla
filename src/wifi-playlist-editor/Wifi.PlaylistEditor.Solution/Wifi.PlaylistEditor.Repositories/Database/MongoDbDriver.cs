@@ -6,11 +6,11 @@ using Wifi.PlaylistEditor.Core;
 
 namespace Wifi.PlaylistEditor.Repositories.Database
 {
-    public class MongoRepository<T> : IDataBaseRepository<T> where T : class
+    public class MongoDbDriver<T> : IDataBaseDriver<T> where T : class
     {
         private readonly IMongoCollection<T> _collection;
 
-        public MongoRepository(string connectionString, string databaseName, string collectionName)
+        public MongoDbDriver(string connectionString, string databaseName, string collectionName)
         {
             if (string.IsNullOrWhiteSpace(connectionString) ||
                 string.IsNullOrWhiteSpace(databaseName) ||
