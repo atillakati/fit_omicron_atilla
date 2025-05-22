@@ -13,6 +13,9 @@ namespace Wifi.PlaylistEditor.Core
 
         string Path { get; }
 
+        /// <summary>
+        /// 128x128 px
+        /// </summary>
         Image Thumbnail { get; }
         
         //byte[] ThumbnailRaw { get; }

@@ -16,8 +16,8 @@ namespace Wifi.PlaylistEditor.Core
         string Extension { get; }
         string Description { get; }
 
-        Playlist Load(string playlistPath);
+        IPlaylist Load(string playlistPath);
 
-        bool Save(string playlistPath, Playlist playlistToSave);
+        bool Save(string playlistPath, IPlaylist playlistToSave);
     }
 }

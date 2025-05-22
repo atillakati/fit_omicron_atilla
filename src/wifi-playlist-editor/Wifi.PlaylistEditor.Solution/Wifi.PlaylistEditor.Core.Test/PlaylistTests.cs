@@ -57,6 +57,25 @@ namespace Wifi.PlaylistEditor.Core.Test
         }
 
         [Test]
+        public void Remove_SpezificItemCheck()
+        {
+            //arrange
+            _mockedItem1.Setup(x => x.Title).Returns("Title 1");
+            _mockedItem2.Setup(x => x.Title).Returns("Title 2");
+
+            _fixture.Add(_mockedItem1.Object);
+            _fixture.Add(_mockedItem2.Object);            
+            var oldCount = _fixture.ItemList.Count();
+
+            //act
+            _fixture.Remove(_mockedItem1.Object);
+
+            //assert
+            var result = _fixture.ItemList.FirstOrDefault(x => x.Title == "Title 2");
+            Assert.That(result, Is.Not.Null);
+        }
+
+        [Test]
         public void Remove_ItemIsNull()
         {
             //arrange
