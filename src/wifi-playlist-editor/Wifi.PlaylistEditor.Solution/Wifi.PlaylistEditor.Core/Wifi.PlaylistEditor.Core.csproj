@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="IDataBaseDriver.cs" />
     <Compile Include="IPlaylist.cs" />
+    <Compile Include="IPlaylistFactory.cs" />
     <Compile Include="IPlaylistItem.cs" />
     <Compile Include="IPlaylistItemFactory.cs" />
     <Compile Include="IPlaylistRepository.cs" />
+    <Compile Include="IPlaylistRepositoryFactory.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
