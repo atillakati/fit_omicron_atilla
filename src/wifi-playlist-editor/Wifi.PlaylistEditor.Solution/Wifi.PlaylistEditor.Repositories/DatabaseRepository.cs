@@ -10,7 +10,7 @@ using Wifi.PlaylistEditor.Repositories.Database;
 
 namespace Wifi.PlaylistEditor.Repositories
 {
-    public class DatabaseRepository
+    public class DatabaseRepository : IDatabaseRepository
     {
         private IDataBaseDriver<PlaylistEntity> _dataBaseDriver;
         private readonly IPlaylistFactory _playlistFactory;

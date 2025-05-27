@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataBaseDriver.cs" />
+    <Compile Include="IDatabaseRepository.cs" />
     <Compile Include="IFileTypeInfo.cs" />
     <Compile Include="IPlaylist.cs" />
     <Compile Include="IPlaylistFactory.cs" />
