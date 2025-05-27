@@ -8,8 +8,7 @@ namespace Wifi.PlaylistEditor.Core
 {
     public interface IPlaylistItemFactory
     {
-        //ToDo: Use here a different type!
-        IPlaylistItem[] AvailableTypes { get; }
+        IEnumerable<IFileTypeInfo> AvailableTypes { get; }
 
         IPlaylistItem Create(string filePath);
     }

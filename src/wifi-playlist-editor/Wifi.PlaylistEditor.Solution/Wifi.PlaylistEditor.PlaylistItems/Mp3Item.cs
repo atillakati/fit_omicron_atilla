@@ -14,7 +14,7 @@ namespace Wifi.PlaylistEditor.PlaylistItems
         private string _filePath;
         private Image _thumbnail;
 
-        internal Mp3Item() { }
+        public Mp3Item() { }
 
         public Mp3Item(string filePath)
         {
