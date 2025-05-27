@@ -13,12 +13,16 @@ namespace Wifi.PlaylistEditor.Repositories
     public class DatabaseRepository
     {
         private IDataBaseDriver<PlaylistEntity> _dataBaseDriver;
+        private readonly IPlaylistFactory _playlistFactory;
         private IPlaylistItemFactory _playlistItemFactory;
 
 
-        public DatabaseRepository(IDataBaseDriver<PlaylistEntity> dataBaseDriver, IPlaylistItemFactory playlistItemFactory)
+        public DatabaseRepository(IDataBaseDriver<PlaylistEntity> dataBaseDriver,
+                                  IPlaylistFactory playlistFactory,
+                                  IPlaylistItemFactory playlistItemFactory)
         {
             _dataBaseDriver = dataBaseDriver;
+            _playlistFactory = playlistFactory;
             _playlistItemFactory = playlistItemFactory;
         }
 
@@ -27,7 +31,6 @@ namespace Wifi.PlaylistEditor.Repositories
         //    //app.config file setting?
         //    var connection = "mongodb://admin:password@localhost:27017";            
 
-        //    //ToDo: get rid of instance generation parts!!!
         //    _dataBaseDriver = new MongoDbDriver<PlaylistEntity>(connection, "playlist-db", "playlist-collection");
             
         //    //someone has to provide us an instance ...??
@@ -74,7 +77,7 @@ namespace Wifi.PlaylistEditor.Repositories
             }
 
             //convert entity => domain
-            return entity.ToDomain(_playlistItemFactory);
+            return entity.ToDomain(_playlistFactory, _playlistItemFactory);
         }
     }
 }

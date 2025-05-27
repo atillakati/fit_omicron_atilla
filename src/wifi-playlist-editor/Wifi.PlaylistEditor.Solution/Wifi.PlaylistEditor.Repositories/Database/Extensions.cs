@@ -22,12 +22,10 @@ namespace Wifi.PlaylistEditor.Repositories.Database
             };
         }
 
-        public static IPlaylist ToDomain(this PlaylistEntity entity, IPlaylistItemFactory itemFactory)
+        public static IPlaylist ToDomain(this PlaylistEntity entity, IPlaylistFactory playlistFactory, IPlaylistItemFactory itemFactory)
         {
             var createAt = DateTime.ParseExact(entity.CreateAt, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-
-            //ToDo: get rid of instance generation parts!!!
-            var playlist = new Playlist(entity.Title, entity.Author, createAt);
+            var playlist = playlistFactory.Create(entity.Title, entity.Author, createAt);
 
             foreach (var itemPath in entity.ItemPathList)
             {
