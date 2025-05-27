@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DummyNewPlaylist.cs" />
     <Compile Include="INewPlaylistDataCreator.cs" />
+    <Compile Include="ITitleSelector.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="TitleSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitleSelector.Designer.cs">
+      <DependentUpon>TitleSelector.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +92,9 @@
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TitleSelector.resx">
+      <DependentUpon>TitleSelector.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +117,10 @@
     <ProjectReference Include="..\Wifi.PlaylistEditor.Factories\Wifi.PlaylistEditor.Factories.csproj">
       <Project>{7ef5953e-5fad-40ad-905b-565c0e65c579}</Project>
       <Name>Wifi.PlaylistEditor.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wifi.PlaylistEditor.Repositories\Wifi.PlaylistEditor.Repositories.csproj">
+      <Project>{b06afa09-9041-4c4b-a19a-6729d7cf1a9d}</Project>
+      <Name>Wifi.PlaylistEditor.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -112,6 +112,7 @@
             this.Controls.Add(this.btt_create);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "NewPlaylistData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create new Playlist";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Remoting.Messaging;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wifi.PlaylistEditor.Core;
 
@@ -12,12 +14,16 @@ namespace Wifi.PlaylistEditor
         private readonly IPlaylistFactory _playlistFactory;
         private readonly IPlaylistItemFactory _playlistItemFactory;
         private readonly IPlaylistRepositoryFactory _playlistRepositoryFactory;
+        private readonly IDatabaseRepository _databaseRepository;
+        private readonly ITitleSelector _titleSelector;
         private readonly INewPlaylistDataCreator _creatorForm;
         private IPlaylist _playlist;
 
         public MainForm(IPlaylistFactory playlistFactory,
                         IPlaylistItemFactory playlistItemFactory,
                         IPlaylistRepositoryFactory playlistRepositoryFactory,
+                        IDatabaseRepository databaseRepository,
+                        ITitleSelector titleSelector,
                         INewPlaylistDataCreator creatorForm)
         {
             InitializeComponent();
@@ -25,6 +31,8 @@ namespace Wifi.PlaylistEditor
             _playlistFactory = playlistFactory;
             _playlistItemFactory = playlistItemFactory;
             _playlistRepositoryFactory = playlistRepositoryFactory;
+            _databaseRepository = databaseRepository;
+            _titleSelector = titleSelector;
             _creatorForm = creatorForm;
         }
 
@@ -241,8 +249,38 @@ namespace Wifi.PlaylistEditor
         }
 
 
+
         #endregion
 
-        
+        private async void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var titleList = await _databaseRepository.LoadAllPlaylistTitles();
+
+            if (_titleSelector.StartDialog(titleList) != DialogResult.OK)
+            {
+                return;
+            }
+
+            _playlist = await _databaseRepository.Load(_titleSelector.SelectedTitle);
+
+            //update UI
+            UpdatePlaylistTitle();
+            UpdatePlaylistDetails();
+            UpdatePlaylistItemView();
+        }
+
+        private async void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var erg = await _databaseRepository.Save(_playlist);
+
+            if (erg)
+            {
+                MessageBox.Show("Playlist saved in database.", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Playlist not saved in database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
