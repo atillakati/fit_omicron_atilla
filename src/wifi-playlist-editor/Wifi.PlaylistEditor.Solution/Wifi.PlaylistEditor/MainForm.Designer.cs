@@ -48,6 +48,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -122,20 +123,21 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(97, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -147,19 +149,21 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(97, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // itemToolStripMenuItem
             // 
             this.itemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addItemToolStripMenuItem,
             this.removeToolStripMenuItem,
+            this.toolStripSeparator3,
             this.clearAllToolStripMenuItem});
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
             this.itemToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
@@ -168,7 +172,7 @@
             // addItemToolStripMenuItem
             // 
             this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
-            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.addItemToolStripMenuItem.Text = "Add Item(s)";
             this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
@@ -177,12 +181,14 @@
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeToolStripMenuItem.Text = "Remove";
+            this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
             this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearAllToolStripMenuItem.Text = "Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // imageList1
             // 
@@ -195,6 +201,11 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Multiselect = true;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +217,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "WIFI Playlist Editor";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -236,6 +248,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

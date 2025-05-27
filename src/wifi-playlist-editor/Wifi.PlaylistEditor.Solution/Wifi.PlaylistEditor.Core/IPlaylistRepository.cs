@@ -11,11 +11,8 @@ namespace Wifi.PlaylistEditor.Core
     /// <summary>
     /// m3u, pls, json
     /// </summary>
-    public interface IPlaylistRepository
+    public interface IPlaylistRepository : IFileTypeInfo
     {
-        string Extension { get; }
-        string Description { get; }
-
         IPlaylist Load(string playlistPath);
 
         bool Save(string playlistPath, IPlaylist playlistToSave);

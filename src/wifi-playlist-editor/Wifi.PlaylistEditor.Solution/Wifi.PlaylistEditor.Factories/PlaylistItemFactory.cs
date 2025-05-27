@@ -12,12 +12,19 @@ namespace Wifi.PlaylistEditor.Factories
     public class PlaylistItemFactory : IPlaylistItemFactory
     {
 
-        public PlaylistItemFactory()
-        {
-            
-        }
+        public PlaylistItemFactory() {  }
 
-        public IPlaylistItem[] AvailableTypes => throw new NotImplementedException();
+        public IEnumerable<IFileTypeInfo> AvailableTypes 
+        {
+            get
+            {
+                return new IFileTypeInfo[]
+                {
+                    new Mp3Item(),
+                    new PictureItem()
+                };
+            }
+        }
 
         public IPlaylistItem Create(string filePath)
         {

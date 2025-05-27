@@ -12,7 +12,7 @@ namespace Wifi.PlaylistEditor.PlaylistItems
         private string _title;
         private Image _thumbnail;
 
-        internal PictureItem() { }
+        public PictureItem() { }
 
         public PictureItem(string filePath)
         {

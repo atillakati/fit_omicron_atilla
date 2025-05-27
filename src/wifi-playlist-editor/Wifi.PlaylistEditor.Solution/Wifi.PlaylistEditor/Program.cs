@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Autofac;
+using System;
 using System.Windows.Forms;
 using Wifi.PlaylistEditor.Core;
 using Wifi.PlaylistEditor.Factories;
@@ -16,18 +14,25 @@ namespace Wifi.PlaylistEditor
         [STAThread]
         static void Main()
         {
+            //us an IoC container to register and resolve required types
+            var builder = new ContainerBuilder();
 
-            //HINT: Replace this by using Nuget Package AutoFac!!
-            var playlistFactory = new PlaylistFactory();
-            var playlistItemFactory = new PlaylistItemFactory();
-            var playlistRepositoryFactory = new RepositoryFactory(playlistFactory, playlistItemFactory);
+#if DEBUG
+            builder.RegisterType<DummyNewPlaylist>().As<INewPlaylistDataCreator>();
+#else 
+            builder.RegisterType<NewPlaylistData>().As<INewPlaylistDataCreator>();
+#endif
+            builder.RegisterType<PlaylistFactory>().As<IPlaylistFactory>();
+            builder.RegisterType<PlaylistItemFactory>().As<IPlaylistItemFactory>();
+            builder.RegisterType<RepositoryFactory>().As<IPlaylistRepositoryFactory>();
+            builder.RegisterType<MainForm>();
+
+            var container = builder.Build();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new MainForm(playlistFactory, 
-                                         playlistItemFactory,
-                                         playlistRepositoryFactory));
+            Application.Run(container.Resolve<MainForm>());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.IO;
 using Wifi.PlaylistEditor.Core;
 using Wifi.PlaylistEditor.Repositories;
@@ -17,7 +17,19 @@ namespace Wifi.PlaylistEditor.Factories
             _playlistItemFactory = playlistItemFactory;
         }
 
-        public IPlaylistRepository AvailableTypes => throw new NotImplementedException();
+        public IEnumerable<IFileTypeInfo> AvailableTypes
+        {
+            get
+            {
+                return new IFileTypeInfo[]
+                {
+                    new M3uRepository(null, null),
+                    new PlsRepository(null, null),
+                    new WplRepository(null, null),
+                    new ZplRepository(null, null)
+                };
+            }
+        }
 
         public IPlaylistRepository Create(string filePath)
         {
@@ -39,6 +51,14 @@ namespace Wifi.PlaylistEditor.Factories
 
                 case ".pls":
                     repository = new PlsRepository(_playlistFactory, _playlistItemFactory);
+                    break;
+
+                case ".wpl":
+                    repository = new WplRepository(_playlistFactory, _playlistItemFactory);
+                    break;
+
+                case ".zpl":
+                    repository = new ZplRepository(_playlistFactory, _playlistItemFactory);
                     break;
 
                 default:
